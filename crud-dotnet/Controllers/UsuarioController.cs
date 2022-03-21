@@ -17,8 +17,8 @@ namespace crud_dotnet.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            // var usuarios = await _repository.BuscarUsuarios();   
-            return Ok("Usuario adicionado com sucesso!!!");  //usuarios.Any() ? Ok(usuarios) : BadRequest();
+            var usuarios = await _repository.BuscarUsuarios();   
+            return usuarios.Any() ? Ok(usuarios) : BadRequest();
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
